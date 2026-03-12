@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>存证详情 - 蚂蚁链存证系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        .detail-item {
+            margin-bottom: 1rem;
+        }
+        .detail-label {
+            font-weight: bold;
+            color: #495057;
+        }
+        .text-content {
+            background-color: #e9ecef;
+            border-radius: 0.375rem;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .status-badge {
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+        }
+        .hash-display {
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            word-break: break-all;
+            background-color: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1 class="display-5">
+                <a href="{{ url_for('index') }}" class="text-white text-decoration-none">
+                    <i class="bi bi-arrow-left"></i> 蚂蚁链存证系统
+                </a>
+            </h1>
+            <p class="lead">存证详情</p>
+            <div class="mt-2">
+                <a href="{{ url_for('config') }}" class="btn btn-outline-light btn-sm">
+                    <i class="bi bi-gear"></i> 网关配置
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h5><i class="bi bi-file-text"></i> 存证基本信息</h5>
+                        {% if record.status == 'completed' %}
+                        <span class="badge bg-success status-badge">
+                        {% elif record.status == 'failed' %}
+                        <span class="badge bg-danger status-badge">
+                        {% else %}
+                        <span class="badge bg-warning status-badge">
+                        {% endif %}
+                            {% if record.status == 'completed' %}
+                                <i class="bi bi-check-circle"></i> 存证完成
+                            {% elif record.status == 'pending' %}
+                                <i class="bi bi-hourglass-split"></i> 处理中
+                            {% else %}
+                                <i class="bi bi-exclamation-triangle"></i> 存证失败
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="detail-item">
+                                    <span class="detail-label">存证ID:</span>
+                                    <span class="ms-2">{{ record.id }}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">企业名称:</span>
+                                    <span class="ms-2">{{ record.enterprise.company_name }}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">法定代表人:</span>
+                                    <span class="ms-2">{{ record.enterprise.legal_person }}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">统一社会信用代码:</span>
+                                    <span class="ms-2">{{ record.enterprise.company_id }}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">存证类型:</span>
+                                    <span class="ms-2">
+                                        {% if record.notary_type == 'text' %}
+                                            <span class="badge bg-info">文本存证</span>
+                                        {% else %}
+                                            <span class="badge bg-secondary">文件存证</span>
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">存证时间:</span>
+                                    <span class="ms-2">{{ record.create_time.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+                                </div>
+                                {% if record.notary_type == 'file' and record.file_name %}
+                                <div class="detail-item">
+                                    <span class="detail-label">文件名:</span>
+                                    <span class="ms-2">
+                                        {{ record.file_name }}
+                                        {% if record.status == 'completed' %}
+                                            <a href="{{ url_for('download_file', record_id=record.id) }}" class="btn btn-sm btn-outline-primary ms-2">
+                                                <i class="bi bi-download"></i> 下载
+                                            </a>
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                {% if record.transaction_id %}
+                                <div class="detail-item">
+                                    <span class="detail-label">蚂蚁链事务ID:</span>
+                                    <div class="ms-2 hash-display">{{ record.transaction_id }}</div>
+                                </div>
+                                {% endif %}
+                                <div class="detail-item">
+                                    <span class="detail-label">内容哈希值:</span>
+                                    <div class="ms-2 hash-display">{{ record.hash_value }}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">存证状态:</span>
+                                    <span class="ms-2">
+                                        {% if record.status == 'completed' %}
+                                            <span class="text-success">已完成</span>
+                                        {% elif record.status == 'pending' %}
+                                            <span class="text-warning">处理中</span>
+                                        {% else %}
+                                            <span class="text-danger">失败</span>
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                {% if record.proof_url %}
+                                <div class="detail-item">
+                                    <span class="detail-label">存证证明:</span>
+                                    <a href="{{ record.proof_url }}" target="_blank" class="ms-2 btn btn-sm btn-success">
+                                        <i class="bi bi-link"></i> 查看证明
+                                    </a>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h5><i class="bi bi-file-earmark-text"></i> 存证内容</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-content">
+                            {{ record.text_content }}
+                        </div>
+                        <div class="mt-3">
+                            <button class="btn btn-outline-primary" id="copyBtn">
+                                <i class="bi bi-clipboard"></i> 复制内容
+                            </button>
+                            <button class="btn btn-outline-secondary" id="downloadBtn">
+                                <i class="bi bi-download"></i> 下载文件
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                {% if record.status == 'completed' and record.transaction_id %}
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h5><i class="bi bi-shield-check"></i> 存证验证</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-success" role="alert">
+                            <i class="bi bi-check-circle"></i> 该存证已成功上链，具备法律效力！
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>验证方式：</h6>
+                                <ol>
+                                    <li>通过蚂蚁链开放平台查询事务ID: {{ record.transaction_id }}</li>
+                                    <li>使用SHA-256算法重新计算内容哈希值</li>
+                                    <li>对比哈希值是否与存证记录一致</li>
+                                </ol>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>法律效力：</h6>
+                                <p>根据《电子签名法》规定，区块链存证记录可作为电子证据使用，具备与纸质文件同等的法律效力。</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 flex-wrap mt-3">
+                            <button class="btn btn-primary" id="getRecordBtn">
+                                <i class="bi bi-database"></i> 获取存证内容
+                            </button>
+                            <button class="btn btn-info" id="getTransBtn">
+                                <i class="bi bi-list-ul"></i> 获取事务所有存证
+                            </button>
+                            <button class="btn btn-success" id="getProofBtn">
+                                <i class="bi bi-file-earmark-certificate"></i> 获取存证证明
+                            </button>
+                            <button class="btn btn-warning" id="verifyHashBtn">
+                                <i class="bi bi-shield-check"></i> 验证哈希值
+                            </button>
+                            <a href="https://openapi.antchain.antgroup.com" target="_blank" class="btn btn-outline-secondary">
+                                <i class="bi bi-external-link"></i> 前往蚂蚁链平台验证
+                            </a>
+                        </div>
+                        
+                        <!-- API响应显示区域 -->
+                        <div id="apiResponse" class="mt-3" style="display: none;">
+                            <div class="card">
+                                <div class="card-header bg-dark text-white">
+                                    <h6 id="responseTitle"><i class="bi bi-code-slash"></i> API响应结果</h6>
+                                </div>
+                                <div class="card-body">
+                                    <pre id="responseContent" class="bg-light p-3 rounded" style="max-height: 400px; overflow-y: auto;"></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if record.status == 'failed' %}
+                <div class="card">
+                    <div class="card-header bg-danger text-white">
+                        <h5><i class="bi bi-exclamation-triangle"></i> 存证失败说明</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-danger" role="alert">
+                            <i class="bi bi-x-circle"></i> 存证过程中出现错误，请稍后重试或联系管理员。
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>可能的原因：</h6>
+                                <ul>
+                                    <li>网络连接问题</li>
+                                    <li>蚂蚁链平台服务暂时不可用</li>
+                                    <li>身份信息验证失败</li>
+                                    <li>其他系统错误</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>解决方案：</h6>
+                                <ul>
+                                    <li>检查网络连接</li>
+                                    <li>稍后重试存证操作</li>
+                                    <li>确认身份信息填写正确</li>
+                                    <li>联系技术支持</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="{{ url_for('notarize') }}" class="btn btn-primary mt-3">
+                            <i class="bi bi-arrow-repeat"></i> 重新存证
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+
+                <div class="card">
+                    <div class="card-header bg-secondary text-white">
+                        <h5><i class="bi bi-tools"></i> 操作选项</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex gap-2">
+                            <a href="{{ url_for('index') }}" class="btn btn-primary">
+                                <i class="bi bi-arrow-left"></i> 返回列表
+                            </a>
+                            <a href="{{ url_for('notarize') }}" class="btn btn-success">
+                                <i class="bi bi-plus-circle"></i> 新增加密存证
+                            </a>
+                            <button type="button" class="btn btn-outline-danger" id="deleteBtn">
+                                <i class="bi bi-trash"></i> 删除记录
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2024 蚂蚁链存证系统. 基于蚂蚁链技术构建.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 复制内容到剪贴板
+        document.getElementById('copyBtn').addEventListener('click', function() {
+            const textContent = `{{ record.text_content | tojson }}`;
+            
+            navigator.clipboard.writeText(textContent).then(function() {
+                alert('内容已复制到剪贴板');
+            }, function(err) {
+                console.error('复制失败:', err);
+                alert('复制失败，请手动复制');
+            });
+        });
+
+        // 下载文件
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const textContent = `{{ record.text_content | tojson }}`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `存证记录_${record.id}_${record.create_time.strftime('%Y%m%d')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        // 删除记录
+        document.getElementById('deleteBtn').addEventListener('click', function() {
+            if (confirm('确认要删除这条存证记录吗？删除后无法恢复！')) {
+                // 这里可以添加删除逻辑
+                alert('删除功能将在后续版本中实现');
+            }
+        });
+
+        // 为哈希值添加复制功能
+        const hashElements = document.querySelectorAll('.hash-display');
+        hashElements.forEach(element => {
+            element.style.cursor = 'pointer';
+            element.addEventListener('click', function() {
+                const text = this.textContent;
+                navigator.clipboard.writeText(text.trim()).then(function() {
+                    alert('哈希值已复制到剪贴板');
+                }, function(err) {
+                    console.error('复制失败:', err);
+                });
+            });
+        });
+
+        // API调用功能
+        const recordId = {{ record.id }};
+        const apiResponse = document.getElementById('apiResponse');
+        const responseTitle = document.getElementById('responseTitle');
+        const responseContent = document.getElementById('responseContent');
+
+        function showResponse(title, data) {
+            responseTitle.textContent = title;
+            responseContent.textContent = JSON.stringify(data, null, 2);
+            apiResponse.style.display = 'block';
+            apiResponse.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 获取存证内容
+        document.getElementById('getRecordBtn').addEventListener('click', function() {
+            fetch(`/api/get_file/${recordId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('获取失败: ' + data.error);
+                    } else {
+                        showResponse('存证内容查询结果', data);
+                    }
+                })
+                .catch(error => {
+                    alert('请求失败: ' + error.message);
+                });
+        });
+
+        // 获取事务所有存证
+        document.getElementById('getTransBtn').addEventListener('click', function() {
+            fetch(`/api/get_trans/${recordId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('获取失败: ' + data.error);
+                    } else {
+                        showResponse('事务所有存证查询结果', data);
+                    }
+                })
+                .catch(error => {
+                    alert('请求失败: ' + error.message);
+                });
+        });
+
+        // 获取存证证明
+        document.getElementById('getProofBtn').addEventListener('click', function() {
+            fetch(`/api/get_proof/${recordId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('获取失败: ' + data.error);
+                    } else {
+                        showResponse('存证证明查询结果', data);
+                        // 如果有存证证明URL，更新页面显示
+                        if (data.proof_url) {
+                            location.reload(); // 刷新页面以显示新的存证证明URL
+                        }
+                    }
+                })
+                .catch(error => {
+                    alert('请求失败: ' + error.message);
+                });
+        });
+
+        // 验证哈希值
+        document.getElementById('verifyHashBtn').addEventListener('click', function() {
+            fetch(`/api/verify_hash/${recordId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('验证失败: ' + data.error);
+                    } else {
+                        const title = data.is_match ? '哈希值验证成功' : '哈希值验证失败';
+                        const result = {
+                            验证结果: data.is_match ? '✅ 哈希值匹配' : '❌ 哈希值不匹配',
+                            存储的哈希值: data.stored_hash,
+                            计算的哈希值: data.calculated_hash
+                        };
+                        showResponse(title, result);
+                        alert(title + ': ' + (data.is_match ? '哈希值一致' : '哈希值不一致'));
+                    }
+                })
+                .catch(error => {
+                    alert('请求失败: ' + error.message);
+                });
+        });
+    </script>
+</body>
+</html>

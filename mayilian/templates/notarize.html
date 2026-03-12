@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新增文本存证 - 蚂蚁链存证系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-floating > label {
+            color: #6c757d;
+        }
+        .text-preview {
+            background-color: #e9ecef;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .hash-info {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0.375rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1 class="display-5">
+                <a href="{{ url_for('index') }}" class="text-white text-decoration-none">
+                    <i class="bi bi-arrow-left"></i> 蚂蚁链存证系统
+                </a>
+            </h1>
+            <p class="lead">新增文本存证</p>
+            <div class="mt-2">
+                <a href="{{ url_for('config') }}" class="btn btn-outline-light btn-sm">
+                    <i class="bi bi-gear"></i> 网关配置
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5><i class="bi bi-shield-lock"></i> 存证信息填写</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" id="notarizeForm" enctype="multipart/form-data">
+                            {% if enterprise %}
+                                <div class="alert alert-info mb-3">
+                                    <i class="bi bi-building"></i> 存证主体：{{ enterprise.company_name }}
+                                    <br>
+                                    <small>法定代表人：{{ enterprise.legal_person }}</small>
+                                </div>
+                            {% else %}
+                                <div class="alert alert-danger mb-3">
+                                    <i class="bi bi-exclamation-triangle"></i> 请先设置企业信息
+                                </div>
+                            {% endif %}
+
+                            <div class="mb-3">
+                                <label class="form-label">存证类型 <span class="text-danger">*</span></label>
+                                <div class="d-flex gap-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="notary_type" id="type_text" value="text" checked>
+                                        <label class="form-check-label" for="type_text">
+                                            <i class="bi bi-file-text"></i> 文本内容
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="notary_type" id="type_file" value="file">
+                                        <label class="form-check-label" for="type_file">
+                                            <i class="bi bi-file-earmark"></i> 文件上传
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 文本内容输入 -->
+                            <div class="mb-3" id="text_content_section">
+                                <label for="text_content" class="form-label">存证内容 <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="text_content" name="text_content" rows="8"
+                                    placeholder="请输入需要存证的文本内容...
+
+例如：
+合同条款、协议内容、重要声明
+创意构思、技术文档、知识产权说明
+个人日记、重要记录、证据材料"></textarea>
+                                <div class="form-text">存证内容将被加密后上传至蚂蚁链，确保不可篡改</div>
+                            </div>
+
+                            <!-- 文件上传输入 -->
+                            <div class="mb-3" id="file_upload_section" style="display: none;">
+                                <label for="file" class="form-label">上传文件 <span class="text-danger">*</span></label>
+                                <input class="form-control" type="file" id="file" name="file" accept=".txt,.pdf,.doc,.docx,.jpg,.png,.gif,.zip,.rar">
+                                <div class="form-text">支持格式：文本文件、PDF、Word文档、图片、压缩包等，最大16MB</div>
+                                <div class="alert alert-info mt-2" role="alert">
+                                    <i class="bi bi-info-circle"></i> 文件将被计算哈希值后上链存证，原始文件仅保存在本地服务器
+                                </div>
+                            </div>
+
+                            <div id="textPreview" class="text-preview" style="display: none;">
+                                <strong>内容预览：</strong>
+                                <div id="previewContent"></div>
+                            </div>
+
+                            <div id="hashInfo" class="hash-info" style="display: none;">
+                                <i class="bi bi-shield-check"></i>
+                                <strong>安全提示：</strong>
+                                <p>系统将自动对您的内容进行SHA-256加密，生成唯一的哈希值后上传至蚂蚁链存证。</p>
+                                <p>原始内容仅保存在本地数据库中，不会上传至任何第三方服务器。</p>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                                    <i class="bi bi-cloud-upload"></i> 提交存证
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary" id="previewBtn">
+                                    <i class="bi bi-eye"></i> 预览内容
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header bg-info text-white">
+                        <h5><i class="bi bi-info-circle"></i> 存证说明</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6><i class="bi bi-check-circle text-success"></i> 存证优势</h6>
+                                <ul>
+                                    <li>基于蚂蚁链区块链技术，确保数据不可篡改</li>
+                                    <li>加密存储，保护用户隐私</li>
+                                    <li>存证记录可随时查询和验证</li>
+                                    <li>具备法律效力的电子存证</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6><i class="bi bi-exclamation-circle text-warning"></i> 注意事项</h6>
+                                <ul>
+                                    <li>请确保存证内容的真实性和合法性</li>
+                                    <li>存证一旦提交无法修改或删除</li>
+                                    <li>请妥善保管您的存证事务ID</li>
+                                    <li>个人信息仅用于身份验证，严格保密</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2024 蚂蚁链存证系统. 基于蚂蚁链技术构建.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 存证类型切换逻辑
+        const textRadio = document.getElementById('type_text');
+        const fileRadio = document.getElementById('type_file');
+        const textContentSection = document.getElementById('text_content_section');
+        const fileUploadSection = document.getElementById('file_upload_section');
+        const textContent = document.getElementById('text_content');
+        const fileInput = document.getElementById('file');
+        const previewBtn = document.getElementById('previewBtn');
+
+        function switchNotaryType() {
+            if (textRadio.checked) {
+                textContentSection.style.display = 'block';
+                fileUploadSection.style.display = 'none';
+                textContent.required = true;
+                fileInput.required = false;
+            } else {
+                textContentSection.style.display = 'none';
+                fileUploadSection.style.display = 'block';
+                textContent.required = false;
+                fileInput.required = true;
+            }
+            
+            // 隐藏预览和哈希信息
+            document.getElementById('textPreview').style.display = 'none';
+            document.getElementById('hashInfo').style.display = 'none';
+        }
+
+        textRadio.addEventListener('change', switchNotaryType);
+        fileRadio.addEventListener('change', switchNotaryType);
+
+        // 预览功能
+        previewBtn.addEventListener('click', function() {
+            if (textRadio.checked) {
+                const content = textContent.value;
+                const previewContent = document.getElementById('previewContent');
+                const textPreview = document.getElementById('textPreview');
+                const hashInfo = document.getElementById('hashInfo');
+
+                if (content.trim()) {
+                    previewContent.textContent = content;
+                    textPreview.style.display = 'block';
+                    hashInfo.style.display = 'block';
+                } else {
+                    alert('请先输入存证内容');
+                }
+            } else if (fileRadio.checked && fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                alert(`文件预览：\n文件名：${file.name}\n大小：${formatFileSize(file.size)}
+类型：${file.type || '未知'}`);
+            } else {
+                alert('请先选择文件');
+            }
+        });
+
+        // 文件大小格式化
+        function formatFileSize(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            else if (bytes < 1048576) return (bytes / 1024).toFixed(2) + ' KB';
+            else return (bytes / 1048576).toFixed(2) + ' MB';
+        }
+
+        // 表单提交前验证
+        document.getElementById('notarizeForm').addEventListener('submit', function(e) {
+            const userName = document.getElementById('user_name').value.trim();
+            const userId = document.getElementById('user_id').value.trim();
+            
+            // 验证必填字段
+            if (!userName || !userId) {
+                alert('请填写所有必填字段');
+                e.preventDefault();
+                return false;
+            }
+
+            // 身份证号码格式验证
+            const idCardRegex = /^\d{17}([0-9]|X)$/i;
+            if (!idCardRegex.test(userId)) {
+                alert('请输入有效的18位身份证号码');
+                document.getElementById('user_id').focus();
+                e.preventDefault();
+                return false;
+            }
+
+            // 验证存证内容
+            if (textRadio.checked) {
+                const content = textContent.value.trim();
+                if (!content) {
+                    alert('请输入存证内容');
+                    textContent.focus();
+                    e.preventDefault();
+                    return false;
+                }
+            } else if (fileRadio.checked) {
+                if (fileInput.files.length === 0) {
+                    alert('请选择要上传的文件');
+                    fileInput.focus();
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // 验证文件大小
+                const maxSize = 160 * 1024 * 1024; // 16MB
+                if (fileInput.files[0].size > maxSize) {
+                    alert('文件大小不能超过16MB');
+                    fileInput.focus();
+                    e.preventDefault();
+                    return false;
+                }
+            }
+
+            // 确认提交
+            if (confirm('确认要提交存证吗？存证一旦提交无法修改或删除。')) {
+                const submitBtn = document.getElementById('submitBtn');
+                submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> 提交中...';
+                submitBtn.disabled = true;
+                return true;
+            } else {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // 实时字数统计
+        textContent.addEventListener('input', function() {
+            const text = this.value;
+            const wordCount = text.length;
+            
+            // 可以在这里添加字数统计显示
+        });
+
+        // 文件选择预览
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                const file = this.files[0];
+                console.log('已选择文件:', file.name, '大小:', formatFileSize(file.size));
+            }
+        });
+    </script>
+</body>
+</html>

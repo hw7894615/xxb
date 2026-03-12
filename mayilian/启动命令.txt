@@ -1,0 +1,1 @@
+D:/git_xxb/xxb/mayilian/.venv/Scripts/python.exe d:/git_xxb/xxb/mayilian/app_new_enterprise.py

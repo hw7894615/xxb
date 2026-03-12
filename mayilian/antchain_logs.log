@@ -1,0 +1,408 @@
+2026-03-11 21:21:15,028 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.1.229:5002
+2026-03-11 21:21:15,028 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-11 21:21:15,029 - werkzeug - INFO -  * Restarting with stat
+2026-03-11 21:21:15,746 - werkzeug - WARNING -  * Debugger is active!
+2026-03-11 21:21:15,753 - werkzeug - INFO -  * Debugger PIN: 114-763-512
+2026-03-11 21:22:21,428 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:22:21] "GET /view_record/14 HTTP/1.1" 200 -
+2026-03-11 21:22:24,125 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:22:24] "GET /api/verify_hash/14 HTTP/1.1" 200 -
+2026-03-11 21:24:16,738 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:24:16] "GET / HTTP/1.1" 200 -
+2026-03-11 21:24:37,215 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:24:37] "GET /export_records HTTP/1.1" 200 -
+2026-03-11 21:24:37,231 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+    ~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 334, in execute
+    write(data)
+    ~~~~~^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 274, in write
+    self.send_header(key, value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python314\Lib\http\server.py", line 586, in send_header
+    ("%s: %s\r\n" % (keyword, value)).encode('latin-1', 'strict'))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 42-45: ordinal not in range(256)
+2026-03-11 21:24:51,783 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:24:51] "GET /export_records HTTP/1.1" 200 -
+2026-03-11 21:24:51,800 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+    ~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 334, in execute
+    write(data)
+    ~~~~~^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 274, in write
+    self.send_header(key, value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python314\Lib\http\server.py", line 586, in send_header
+    ("%s: %s\r\n" % (keyword, value)).encode('latin-1', 'strict'))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 42-45: ordinal not in range(256)
+2026-03-11 21:24:54,198 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:24:54] "GET / HTTP/1.1" 200 -
+2026-03-11 21:24:56,624 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:24:56] "GET /export_records HTTP/1.1" 200 -
+2026-03-11 21:24:56,648 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+    ~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 334, in execute
+    write(data)
+    ~~~~~^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 274, in write
+    self.send_header(key, value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python314\Lib\http\server.py", line 586, in send_header
+    ("%s: %s\r\n" % (keyword, value)).encode('latin-1', 'strict'))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 42-45: ordinal not in range(256)
+2026-03-11 21:25:10,918 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:25:10] "GET /batch_notarize HTTP/1.1" 200 -
+2026-03-11 21:25:29,866 - antchain - INFO - [BatchNotarize] ´´½¨´æÖ¤¼ÇÂ¼³É¹¦£¬ID£º16
+2026-03-11 21:25:29,869 - antchain - INFO - [AntChain] µ÷ÓÃcreate_trans½Ó¿Ú£¬²ÎÊı£º{'product_instance_id': 'notarycore-api-sandbox', 'properties': '', 'customer': <antchain_sdk_twc.models.Identity object at 0x0000022B7291D400>}
+2026-03-11 21:25:32,697 - antchain - INFO - [AntChain] create_trans½Ó¿ÚÏìÓ¦£º{'req_msg_id': '73ac7a4f30e150169396191f5115da9c', 'result_code': '2002', 'result_msg': 'MOBILE_NO_INVALID', 'transaction_id': None, 'tsr': None}
+2026-03-11 21:25:32,698 - antchain - INFO - [BatchNotarize] ÂìÒÏÁ´ÊÂÎñ´´½¨³É¹¦£¬ÊÂÎñID£º73ac7a4f30e150169396191f5115da9c
+2026-03-11 21:25:32,699 - antchain - INFO - [AntChain] µ÷ÓÃcreate_text½Ó¿Ú£¬²ÎÊı£º{'product_instance_id': 'notarycore-api-sandbox', 'transaction_id': '73ac7a4f30e150169396191f5115da9c', 'text_notary_type': 'TEXT_HASH', 'notary_content': 'de78faca41a1d5ec43101a3bcfea3fa830999112fb6cb63bec83f2ba5bed1726', 'phase': '1', 'hash_algorithm': 'SHA256'}
+2026-03-11 21:25:32,794 - antchain - INFO - [AntChain] create_text½Ó¿ÚÏìÓ¦£º{'req_msg_id': '4a370c2bed305f1ab7864f6dd74e5a0c', 'result_code': '2499', 'result_msg': 'TRANSACTION_ID_INVALID', 'tsr': None, 'tx_hash': None}
+2026-03-11 21:25:32,818 - antchain - INFO - [BatchNotarize] ´æÖ¤³É¹¦£¬¼ÇÂ¼ID£º16
+2026-03-11 21:25:32,844 - antchain - INFO - [BatchNotarize] ´´½¨´æÖ¤¼ÇÂ¼³É¹¦£¬ID£º17
+2026-03-11 21:25:32,847 - antchain - INFO - [AntChain] µ÷ÓÃcreate_trans½Ó¿Ú£¬²ÎÊı£º{'product_instance_id': 'notarycore-api-sandbox', 'properties': '', 'customer': <antchain_sdk_twc.models.Identity object at 0x0000022B728C60D0>}
+2026-03-11 21:25:32,953 - antchain - INFO - [AntChain] create_trans½Ó¿ÚÏìÓ¦£º{'req_msg_id': 'a4d7392899735f229b7018dd84803ddd', 'result_code': '2002', 'result_msg': 'MOBILE_NO_INVALID', 'transaction_id': None, 'tsr': None}
+2026-03-11 21:25:32,953 - antchain - INFO - [BatchNotarize] ÂìÒÏÁ´ÊÂÎñ´´½¨³É¹¦£¬ÊÂÎñID£ºa4d7392899735f229b7018dd84803ddd
+2026-03-11 21:25:32,954 - antchain - INFO - [AntChain] µ÷ÓÃcreate_text½Ó¿Ú£¬²ÎÊı£º{'product_instance_id': 'notarycore-api-sandbox', 'transaction_id': 'a4d7392899735f229b7018dd84803ddd', 'text_notary_type': 'TEXT_HASH', 'notary_content': '1b45d3447363c082ef80b394175aec5f6725702521042dfdfa39981a4103981c', 'phase': '1', 'hash_algorithm': 'SHA256'}
+2026-03-11 21:25:33,049 - antchain - INFO - [AntChain] create_text½Ó¿ÚÏìÓ¦£º{'req_msg_id': '002b0b3a2ad55718b9263b2160511f9b', 'result_code': '2499', 'result_msg': 'TRANSACTION_ID_INVALID', 'tsr': None, 'tx_hash': None}
+2026-03-11 21:25:33,060 - antchain - INFO - [BatchNotarize] ´æÖ¤³É¹¦£¬¼ÇÂ¼ID£º17
+2026-03-11 21:25:33,060 - antchain - INFO - [BatchNotarize] ÅúÁ¿´æÖ¤Íê³É£¬³É¹¦£º2£¬Ê§°Ü£º0
+2026-03-11 21:25:33,064 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:25:33] "[32mPOST /batch_notarize HTTP/1.1[0m" 302 -
+2026-03-11 21:25:33,076 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:25:33] "GET / HTTP/1.1" 200 -
+2026-03-11 21:25:41,564 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:25:41] "GET /view_record/17 HTTP/1.1" 200 -
+2026-03-11 21:25:51,657 - antchain - INFO - [AntChain] µ÷ÓÃget_file½Ó¿Ú£¬²ÎÊı£º{'product_instance_id': 'notarycore-api-sandbox', 'transaction_id': 'a4d7392899735f229b7018dd84803ddd', 'tx_hash': '1b45d3447363c082ef80b394175aec5f6725702521042dfdfa39981a4103981c'}
+2026-03-11 21:25:51,792 - antchain - INFO - [AntChain] get_file½Ó¿ÚÏìÓ¦£º{'req_msg_id': 'e99aaf09a8bc561abb55c648b1e4b700', 'result_code': '2003', 'result_msg': 'PERMISSION_IS_NOT_EXIST', 'file_hash': None, 'file_notary_type': None, 'hash_algorithm': None, 'oss_path': None}
+2026-03-11 21:25:51,793 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:25:51] "GET /api/get_file/17 HTTP/1.1" 200 -
+2026-03-11 21:25:56,673 - antchain - INFO - [AntChain] µ÷ÓÃget_trans½Ó¿Ú£¬²ÎÊı£º{'transaction_id': 'a4d7392899735f229b7018dd84803ddd', 'product_instance_id': 'notarycore-api-sandbox'}
+2026-03-11 21:25:56,806 - antchain - INFO - [AntChain] get_trans½Ó¿ÚÏìÓ¦£º{'req_msg_id': '3a45f5bec56e501ab2b606e87f94dbf3', 'result_code': '2499', 'result_msg': 'TRANSACTION_ID_INVALID', 'file_url': None, 'transaction_id': None}
+2026-03-11 21:25:56,807 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:25:56] "GET /api/get_trans/17 HTTP/1.1" 200 -
+2026-03-11 21:26:02,162 - antchain - INFO - [AntChain] µ÷ÓÃget_proof½Ó¿Ú£¬²ÎÊı£º{'product_instance_id': 'notarycore-api-sandbox', 'transaction_id': 'a4d7392899735f229b7018dd84803ddd'}
+2026-03-11 21:26:02,162 - antchain - ERROR - [AntChain] get_proof½Ó¿ÚÒì³££ºcannot import name 'GetProofRequest' from 'antchain_sdk_twc.models' (D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\antchain_sdk_twc\models.py)
+Traceback (most recent call last):
+  File "D:\git_xxb\xxb\mayilian\app_new_enterprise.py", line 160, in get_proof
+    from antchain_sdk_twc.models import GetProofRequest
+ImportError: cannot import name 'GetProofRequest' from 'antchain_sdk_twc.models' (D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\antchain_sdk_twc\models.py)
+2026-03-11 21:26:02,165 - antchain - ERROR - [API] »ñÈ¡´æÖ¤Ö¤Ã÷Ê§°Ü£¬¼ÇÂ¼ID£º17£¬´íÎó£ºcannot import name 'GetProofRequest' from 'antchain_sdk_twc.models' (D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\antchain_sdk_twc\models.py)
+Traceback (most recent call last):
+  File "D:\git_xxb\xxb\mayilian\app_new_enterprise.py", line 620, in api_get_proof
+    response = client.get_proof(
+        product_instance_id=app.config.get('ANTCHAIN_PRODUCT_INSTANCE_ID'),
+        transaction_id=record.transaction_id
+    )
+  File "D:\git_xxb\xxb\mayilian\app_new_enterprise.py", line 160, in get_proof
+    from antchain_sdk_twc.models import GetProofRequest
+ImportError: cannot import name 'GetProofRequest' from 'antchain_sdk_twc.models' (D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\antchain_sdk_twc\models.py)
+2026-03-11 21:26:02,166 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:26:02] "GET /api/get_proof/17 HTTP/1.1" 200 -
+2026-03-11 21:26:10,911 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:26:10] "GET / HTTP/1.1" 200 -
+2026-03-11 21:26:30,105 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:26:30] "GET /config HTTP/1.1" 200 -
+2026-03-11 21:26:57,068 - antchain - INFO - [Config] ÂìÒÏÁ´ÅäÖÃÒÑ¸üĞÂ£¬²úÆ·ÊµÀıID£ºnotarycore-api-sandbox
+2026-03-11 21:26:57,069 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:26:57] "[32mPOST /config HTTP/1.1[0m" 302 -
+2026-03-11 21:26:57,082 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:26:57] "GET /config HTTP/1.1" 200 -
+2026-03-11 21:27:20,875 - antchain - INFO - [Config] ÂìÒÏÁ´ÅäÖÃÒÑ¸üĞÂ£¬²úÆ·ÊµÀıID£ºnotarycore-api-sandbox
+2026-03-11 21:27:20,876 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:27:20] "[32mPOST /config HTTP/1.1[0m" 302 -
+2026-03-11 21:27:20,888 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:27:20] "GET /config HTTP/1.1" 200 -
+2026-03-11 21:27:29,313 - antchain - INFO - [Config] ÂìÒÏÁ´ÅäÖÃÒÑ¸üĞÂ£¬²úÆ·ÊµÀıID£ºnotarycore-api-sandbox
+2026-03-11 21:27:29,315 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:27:29] "[32mPOST /config HTTP/1.1[0m" 302 -
+2026-03-11 21:27:29,324 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:27:29] "GET /config HTTP/1.1" 200 -
+2026-03-11 21:27:41,717 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:27:41] "GET / HTTP/1.1" 200 -
+2026-03-11 21:27:45,095 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:27:45] "GET /config HTTP/1.1" 200 -
+2026-03-11 21:27:52,933 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:27:52] "GET /export_records HTTP/1.1" 200 -
+2026-03-11 21:27:52,953 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+    ~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 334, in execute
+    write(data)
+    ~~~~~^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 274, in write
+    self.send_header(key, value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python314\Lib\http\server.py", line 586, in send_header
+    ("%s: %s\r\n" % (keyword, value)).encode('latin-1', 'strict'))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 42-45: ordinal not in range(256)
+2026-03-11 21:28:08,473 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:28:08] "GET /notarize HTTP/1.1" 200 -
+2026-03-11 21:28:13,440 - antchain - INFO - [Notarize] ´´½¨´æÖ¤¼ÇÂ¼³É¹¦£¬ID£º18
+2026-03-11 21:28:13,442 - antchain - INFO - [AntChain] µ÷ÓÃcreate_trans½Ó¿Ú£¬²ÎÊı£º{'product_instance_id': 'notarycore-api-sandbox', 'properties': '', 'customer': <antchain_sdk_twc.models.Identity object at 0x0000022B728C6C10>}
+2026-03-11 21:28:15,056 - antchain - ERROR - [AntChain] create_trans½Ó¿ÚÒì³££ºHTTPSConnectionPool(host='openapi.antchain.antgroup1.com', port=443): Max retries exceeded with url: /gateway.do?method=twc.notary.trans.create&version=1.0&sign_type=HmacSHA1&req_time=2026-03-11T13%3A28%3A13Z&req_msg_id=684fe5d528d4563a838e845b458eb1dd&access_key=ACsbgRMccEcJSqJ6&base_sdk_version=TeaSDK-2.0&sdk_version=1.13.8&_prod_code=TWC&_prod_channel=undefined&sign=LnV%2F8dpHY%2FYsmQiRqbZSI255DkE%3D (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000022B728C7D90>: Failed to resolve 'openapi.antchain.antgroup1.com' ([Errno 11001] getaddrinfo failed)"))
+Traceback (most recent call last):
+  File "D:\git_xxb\xxb\mayilian\app_new_enterprise.py", line 110, in create_trans
+    response = self._twc_client.create_trans(request)
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\antchain_sdk_twc\client.py", line 14240, in create_trans
+    return self.create_trans_ex(request, headers, runtime)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\antchain_sdk_twc\client.py", line 14267, in create_trans_ex
+    self.do_request('1.0', 'twc.notary.trans.create', 'HTTPS', 'POST', f'/gateway.do', TeaCore.to_map(request), headers, runtime)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\antchain_sdk_twc\client.py", line 172, in do_request
+    raise UnretryableException(_last_request, _last_exception)
+Tea.exceptions.UnretryableException: HTTPSConnectionPool(host='openapi.antchain.antgroup1.com', port=443): Max retries exceeded with url: /gateway.do?method=twc.notary.trans.create&version=1.0&sign_type=HmacSHA1&req_time=2026-03-11T13%3A28%3A13Z&req_msg_id=684fe5d528d4563a838e845b458eb1dd&access_key=ACsbgRMccEcJSqJ6&base_sdk_version=TeaSDK-2.0&sdk_version=1.13.8&_prod_code=TWC&_prod_channel=undefined&sign=LnV%2F8dpHY%2FYsmQiRqbZSI255DkE%3D (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000022B728C7D90>: Failed to resolve 'openapi.antchain.antgroup1.com' ([Errno 11001] getaddrinfo failed)"))
+2026-03-11 21:28:15,085 - antchain - ERROR - [Notarize] ´æÖ¤Ê§°Ü£¬¼ÇÂ¼ID£º18£¬´íÎó£ºHTTPSConnectionPool(host='openapi.antchain.antgroup1.com', port=443): Max retries exceeded with url: /gateway.do?method=twc.notary.trans.create&version=1.0&sign_type=HmacSHA1&req_time=2026-03-11T13%3A28%3A13Z&req_msg_id=684fe5d528d4563a838e845b458eb1dd&access_key=ACsbgRMccEcJSqJ6&base_sdk_version=TeaSDK-2.0&sdk_version=1.13.8&_prod_code=TWC&_prod_channel=undefined&sign=LnV%2F8dpHY%2FYsmQiRqbZSI255DkE%3D (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000022B728C7D90>: Failed to resolve 'openapi.antchain.antgroup1.com' ([Errno 11001] getaddrinfo failed)"))
+Traceback (most recent call last):
+  File "D:\git_xxb\xxb\mayilian\app_new_enterprise.py", line 305, in notarize
+    trans_response = client.create_trans(
+        product_instance_id=app.config.get('ANTCHAIN_PRODUCT_INSTANCE_ID'),
+        properties='',
+        customer=identity
+    )
+  File "D:\git_xxb\xxb\mayilian\app_new_enterprise.py", line 110, in create_trans
+    response = self._twc_client.create_trans(request)
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\antchain_sdk_twc\client.py", line 14240, in create_trans
+    return self.create_trans_ex(request, headers, runtime)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\antchain_sdk_twc\client.py", line 14267, in create_trans_ex
+    self.do_request('1.0', 'twc.notary.trans.create', 'HTTPS', 'POST', f'/gateway.do', TeaCore.to_map(request), headers, runtime)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\antchain_sdk_twc\client.py", line 172, in do_request
+    raise UnretryableException(_last_request, _last_exception)
+Tea.exceptions.UnretryableException: HTTPSConnectionPool(host='openapi.antchain.antgroup1.com', port=443): Max retries exceeded with url: /gateway.do?method=twc.notary.trans.create&version=1.0&sign_type=HmacSHA1&req_time=2026-03-11T13%3A28%3A13Z&req_msg_id=684fe5d528d4563a838e845b458eb1dd&access_key=ACsbgRMccEcJSqJ6&base_sdk_version=TeaSDK-2.0&sdk_version=1.13.8&_prod_code=TWC&_prod_channel=undefined&sign=LnV%2F8dpHY%2FYsmQiRqbZSI255DkE%3D (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000022B728C7D90>: Failed to resolve 'openapi.antchain.antgroup1.com' ([Errno 11001] getaddrinfo failed)"))
+2026-03-11 21:28:15,091 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:28:15] "[32mPOST /notarize HTTP/1.1[0m" 302 -
+2026-03-11 21:28:15,105 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:28:15] "GET / HTTP/1.1" 200 -
+2026-03-11 21:29:08,214 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:29:08] "GET /view_record/18 HTTP/1.1" 200 -
+2026-03-11 21:29:24,546 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:29:24] "GET /config HTTP/1.1" 200 -
+2026-03-11 21:29:30,415 - antchain - INFO - [Config] ÂìÒÏÁ´ÅäÖÃÒÑ¸üĞÂ£¬²úÆ·ÊµÀıID£ºnotarycore-api-sandbox
+2026-03-11 21:29:30,416 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:29:30] "[32mPOST /config HTTP/1.1[0m" 302 -
+2026-03-11 21:29:30,428 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:29:30] "GET /config HTTP/1.1" 200 -
+2026-03-11 21:29:32,631 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:29:32] "GET /config HTTP/1.1" 200 -
+2026-03-11 21:29:41,152 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:29:41] "GET /notarize HTTP/1.1" 200 -
+2026-03-11 21:29:47,820 - antchain - INFO - [Notarize] ´´½¨´æÖ¤¼ÇÂ¼³É¹¦£¬ID£º19
+2026-03-11 21:29:47,821 - antchain - INFO - [AntChain] µ÷ÓÃcreate_trans½Ó¿Ú£¬²ÎÊı£º{'product_instance_id': 'notarycore-api-sandbox', 'properties': '', 'customer': <antchain_sdk_twc.models.Identity object at 0x0000022B72C9B230>}
+2026-03-11 21:29:49,296 - antchain - INFO - [AntChain] create_trans½Ó¿ÚÏìÓ¦£º{'req_msg_id': '265507d7332654fab2b956a4761ec4c5', 'result_code': '2002', 'result_msg': 'MOBILE_NO_INVALID', 'transaction_id': None, 'tsr': None}
+2026-03-11 21:29:49,296 - antchain - INFO - [Notarize] ÂìÒÏÁ´ÊÂÎñ´´½¨³É¹¦£¬ÊÂÎñID£º265507d7332654fab2b956a4761ec4c5
+2026-03-11 21:29:49,296 - antchain - INFO - [AntChain] µ÷ÓÃcreate_text½Ó¿Ú£¬²ÎÊı£º{'product_instance_id': 'notarycore-api-sandbox', 'transaction_id': '265507d7332654fab2b956a4761ec4c5', 'text_notary_type': 'TEXT_HASH', 'notary_content': '1b1e4a7a3263e81e0cd1c01570abd6d968f4ee3bf7fe7e4111ab303161e857d1', 'phase': '1', 'hash_algorithm': 'SHA256'}
+2026-03-11 21:29:49,375 - antchain - INFO - [AntChain] create_text½Ó¿ÚÏìÓ¦£º{'req_msg_id': 'ded9ef55987e544295ad0b7a0aa40d7d', 'result_code': '2499', 'result_msg': 'TRANSACTION_ID_INVALID', 'tsr': None, 'tx_hash': None}
+2026-03-11 21:29:49,388 - antchain - INFO - [Notarize] ´æÖ¤³É¹¦£¬¼ÇÂ¼ID£º19
+2026-03-11 21:29:49,390 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:29:49] "[32mPOST /notarize HTTP/1.1[0m" 302 -
+2026-03-11 21:29:49,402 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:29:49] "GET / HTTP/1.1" 200 -
+2026-03-11 21:30:01,913 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:30:01] "GET /?search=ºÏ²¢ HTTP/1.1" 200 -
+2026-03-11 21:30:06,410 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:30:06] "GET /enterprise HTTP/1.1" 200 -
+2026-03-11 21:30:28,813 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:30:28] "[32mPOST /enterprise HTTP/1.1[0m" 302 -
+2026-03-11 21:30:28,829 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:30:28] "GET / HTTP/1.1" 200 -
+2026-03-11 21:30:32,260 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:30:32] "GET /export_records HTTP/1.1" 200 -
+2026-03-11 21:30:32,283 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+    ~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 334, in execute
+    write(data)
+    ~~~~~^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 274, in write
+    self.send_header(key, value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python314\Lib\http\server.py", line 586, in send_header
+    ("%s: %s\r\n" % (keyword, value)).encode('latin-1', 'strict'))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 42-45: ordinal not in range(256)
+2026-03-11 21:31:18,549 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:31:18] "GET /export_records HTTP/1.1" 200 -
+2026-03-11 21:31:18,567 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+    ~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 334, in execute
+    write(data)
+    ~~~~~^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 274, in write
+    self.send_header(key, value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python314\Lib\http\server.py", line 586, in send_header
+    ("%s: %s\r\n" % (keyword, value)).encode('latin-1', 'strict'))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 42-45: ordinal not in range(256)
+2026-03-11 21:34:10,775 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:34:10] "GET / HTTP/1.1" 200 -
+2026-03-11 21:34:12,578 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:34:12] "GET /export_records HTTP/1.1" 200 -
+2026-03-11 21:34:12,591 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+    ~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 334, in execute
+    write(data)
+    ~~~~~^^^^^^
+  File "D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\werkzeug\serving.py", line 274, in write
+    self.send_header(key, value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Python314\Lib\http\server.py", line 586, in send_header
+    ("%s: %s\r\n" % (keyword, value)).encode('latin-1', 'strict'))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 42-45: ordinal not in range(256)
+2026-03-11 21:36:05,855 - werkzeug - INFO -  * Detected change in 'D:\\git_xxb\\xxb\\mayilian\\app_new_enterprise.py', reloading
+2026-03-11 21:36:06,144 - werkzeug - INFO -  * Restarting with stat
+2026-03-11 21:36:07,274 - werkzeug - WARNING -  * Debugger is active!
+2026-03-11 21:36:07,280 - werkzeug - INFO -  * Debugger PIN: 114-763-512
+2026-03-11 21:36:07,323 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:36:07] "GET /export_records HTTP/1.1" 200 -
+2026-03-11 21:36:18,002 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.1.229:5002
+2026-03-11 21:36:18,002 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-11 21:36:18,003 - werkzeug - INFO -  * Restarting with stat
+2026-03-11 21:36:18,696 - werkzeug - WARNING -  * Debugger is active!
+2026-03-11 21:36:18,701 - werkzeug - INFO -  * Debugger PIN: 114-763-512
+2026-03-11 21:37:42,403 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:37:42] "GET /export_records HTTP/1.1" 200 -
+2026-03-11 21:37:48,528 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:37:48] "GET / HTTP/1.1" 200 -
+2026-03-11 21:37:51,278 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 21:37:51] "GET /export_records HTTP/1.1" 200 -
+2026-03-12 10:46:57,584 - antchain - INFO - ================================================================================
+2026-03-12 10:46:57,585 - antchain - INFO - [ç³»ç»Ÿ] æ—¥å¿—ç³»ç»Ÿåˆå§‹åŒ–å®Œæˆ
+2026-03-12 10:46:57,586 - antchain - INFO - [ç³»ç»Ÿ] æ—¥å¿—æ–‡ä»¶è·¯å¾„: d:\git_xxb\xxb\mayilian\antchain_logs.log
+2026-03-12 10:46:57,587 - antchain - INFO - ================================================================================
+2026-03-12 10:46:58,245 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://10.99.52.51:5002
+2026-03-12 10:46:58,246 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-12 10:46:58,251 - werkzeug - INFO -  * Restarting with stat
+2026-03-12 10:46:59,372 - antchain - INFO - ================================================================================
+2026-03-12 10:46:59,373 - antchain - INFO - [ç³»ç»Ÿ] æ—¥å¿—ç³»ç»Ÿåˆå§‹åŒ–å®Œæˆ
+2026-03-12 10:46:59,373 - antchain - INFO - [ç³»ç»Ÿ] æ—¥å¿—æ–‡ä»¶è·¯å¾„: d:\git_xxb\xxb\mayilian\antchain_logs.log
+2026-03-12 10:46:59,374 - antchain - INFO - ================================================================================
+2026-03-12 10:46:59,963 - werkzeug - WARNING -  * Debugger is active!
+2026-03-12 10:46:59,981 - werkzeug - INFO -  * Debugger PIN: 114-763-512
+2026-03-12 10:47:50,625 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 10:47:50] "GET / HTTP/1.1" 200 -
+2026-03-12 10:47:53,638 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 10:47:53] "GET /notarize HTTP/1.1" 200 -
+2026-03-12 10:48:01,452 - antchain - INFO - [Notarize] åˆ›å»ºå­˜è¯è®°å½•æˆåŠŸï¼ŒIDï¼š21
+2026-03-12 10:48:01,456 - antchain - INFO - ================================================================================
+2026-03-12 10:48:01,457 - antchain - INFO - [AntChain] ã€æ¥å£ã€‘twc.notary.trans.create (create_trans)
+2026-03-12 10:48:01,459 - antchain - INFO - [AntChain] ã€è¯·æ±‚å‚æ•°ã€‘{'product_instance_id': 'notarycore-api-sandbox', 'properties': '', 'customer': <antchain_sdk_twc.models.Identity object at 0x000001FC82AB4EC0>}
+2026-03-12 10:48:01,460 - antchain - INFO - [AntChain] ã€è¯·æ±‚æ—¶é—´ã€‘2026-03-12 10:48:01.460105
+2026-03-12 10:48:07,816 - antchain - INFO - [AntChain] ã€å“åº”çŠ¶æ€ã€‘æˆåŠŸ
+2026-03-12 10:48:07,817 - antchain - INFO - [AntChain] ã€å“åº”æ—¶é—´ã€‘2026-03-12 10:48:07.817160
+2026-03-12 10:48:07,818 - antchain - INFO - [AntChain] ã€å“åº”å‚æ•°ã€‘{'req_msg_id': 'db9cc62b68d652e5872f1fdf18f0b367', 'result_code': '2002', 'result_msg': 'MOBILE_NO_INVALID', 'transaction_id': None, 'tsr': None}
+2026-03-12 10:48:07,819 - antchain - INFO - [AntChain] ã€å…³é”®ä¿¡æ¯ã€‘äº‹åŠ¡ID: db9cc62b68d652e5872f1fdf18f0b367
+2026-03-12 10:48:07,820 - antchain - INFO - ================================================================================
+2026-03-12 10:48:07,821 - antchain - INFO - [Notarize] èš‚èšé“¾äº‹åŠ¡åˆ›å»ºæˆåŠŸï¼Œäº‹åŠ¡IDï¼šdb9cc62b68d652e5872f1fdf18f0b367
+2026-03-12 10:48:07,822 - antchain - INFO - ================================================================================
+2026-03-12 10:48:07,823 - antchain - INFO - [AntChain] ã€æ¥å£ã€‘twc.notary.text.create (create_text)
+2026-03-12 10:48:07,824 - antchain - INFO - [AntChain] ã€è¯·æ±‚å‚æ•°ã€‘{'product_instance_id': 'notarycore-api-sandbox', 'transaction_id': 'db9cc62b68d652e5872f1fdf18f0b367', 'text_notary_type': 'TEXT_HASH', 'notary_content': '42ddc4bd794dc1d4c038d00f8dd1e5cebb9a38ad93280895694808e11038c6de', 'phase': '1', 'hash_algorithm': 'SHA256'}
+2026-03-12 10:48:07,825 - antchain - INFO - [AntChain] ã€è¯·æ±‚æ—¶é—´ã€‘2026-03-12 10:48:07.825176
+2026-03-12 10:48:07,942 - antchain - INFO - [AntChain] ã€å“åº”çŠ¶æ€ã€‘æˆåŠŸ
+2026-03-12 10:48:07,943 - antchain - INFO - [AntChain] ã€å“åº”æ—¶é—´ã€‘2026-03-12 10:48:07.943030
+2026-03-12 10:48:07,943 - antchain - INFO - [AntChain] ã€å“åº”å‚æ•°ã€‘{'req_msg_id': 'd1f8b27382135a578192089b4a43a808', 'result_code': '2499', 'result_msg': 'TRANSACTION_ID_INVALID', 'tsr': None, 'tx_hash': None}
+2026-03-12 10:48:07,944 - antchain - INFO - [AntChain] ã€å…³é”®ä¿¡æ¯ã€‘è¯·æ±‚ID: d1f8b27382135a578192089b4a43a808
+2026-03-12 10:48:07,945 - antchain - INFO - ================================================================================
+2026-03-12 10:48:07,991 - antchain - INFO - [Notarize] å­˜è¯æˆåŠŸï¼Œè®°å½•IDï¼š21
+2026-03-12 10:48:07,995 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 10:48:07] "[32mPOST /notarize HTTP/1.1[0m" 302 -
+2026-03-12 10:48:08,042 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 10:48:08] "GET / HTTP/1.1" 200 -
+2026-03-12 10:48:13,016 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 10:48:13] "GET /view_record/21 HTTP/1.1" 200 -
+2026-03-12 10:48:16,524 - antchain - INFO - ================================================================================
+2026-03-12 10:48:16,525 - antchain - INFO - [AntChain] ã€æ¥å£ã€‘twc.notary.text.get (get_file)
+2026-03-12 10:48:16,526 - antchain - INFO - [AntChain] ã€è¯·æ±‚å‚æ•°ã€‘{'product_instance_id': 'notarycore-api-sandbox', 'transaction_id': 'db9cc62b68d652e5872f1fdf18f0b367', 'tx_hash': '42ddc4bd794dc1d4c038d00f8dd1e5cebb9a38ad93280895694808e11038c6de'}
+2026-03-12 10:48:16,526 - antchain - INFO - [AntChain] ã€è¯·æ±‚æ—¶é—´ã€‘2026-03-12 10:48:16.526435
+2026-03-12 10:48:16,623 - antchain - INFO - [AntChain] ã€å“åº”çŠ¶æ€ã€‘æˆåŠŸ
+2026-03-12 10:48:16,624 - antchain - INFO - [AntChain] ã€å“åº”æ—¶é—´ã€‘2026-03-12 10:48:16.624369
+2026-03-12 10:48:16,625 - antchain - INFO - [AntChain] ã€å“åº”å‚æ•°ã€‘{'req_msg_id': '2ca37dbff1ab514dbb76ea6156c3b153', 'result_code': '2003', 'result_msg': 'PERMISSION_IS_NOT_EXIST', 'file_hash': None, 'file_notary_type': None, 'hash_algorithm': None, 'oss_path': None}
+2026-03-12 10:48:16,625 - antchain - INFO - [AntChain] ã€å…³é”®ä¿¡æ¯ã€‘è¯·æ±‚ID: 2ca37dbff1ab514dbb76ea6156c3b153
+2026-03-12 10:48:16,626 - antchain - INFO - ================================================================================
+2026-03-12 10:48:16,628 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 10:48:16] "GET /api/get_file/21 HTTP/1.1" 200 -
+2026-03-12 10:48:22,351 - antchain - INFO - ================================================================================
+2026-03-12 10:48:22,351 - antchain - INFO - [AntChain] ã€æ¥å£ã€‘twc.notary.trans.get (get_trans)
+2026-03-12 10:48:22,352 - antchain - INFO - [AntChain] ã€è¯·æ±‚å‚æ•°ã€‘{'transaction_id': 'db9cc62b68d652e5872f1fdf18f0b367', 'product_instance_id': 'notarycore-api-sandbox'}
+2026-03-12 10:48:22,352 - antchain - INFO - [AntChain] ã€è¯·æ±‚æ—¶é—´ã€‘2026-03-12 10:48:22.352867
+2026-03-12 10:48:22,457 - antchain - INFO - [AntChain] ã€å“åº”çŠ¶æ€ã€‘æˆåŠŸ
+2026-03-12 10:48:22,458 - antchain - INFO - [AntChain] ã€å“åº”æ—¶é—´ã€‘2026-03-12 10:48:22.458214
+2026-03-12 10:48:22,459 - antchain - INFO - [AntChain] ã€å“åº”å‚æ•°ã€‘{'req_msg_id': 'f6b37ddcd68a51bdaced1b6e2ad78427', 'result_code': '2499', 'result_msg': 'TRANSACTION_ID_INVALID', 'file_url': None, 'transaction_id': None}
+2026-03-12 10:48:22,459 - antchain - INFO - [AntChain] ã€å…³é”®ä¿¡æ¯ã€‘è¯·æ±‚ID: f6b37ddcd68a51bdaced1b6e2ad78427
+2026-03-12 10:48:22,460 - antchain - INFO - ================================================================================
+2026-03-12 10:48:22,461 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 10:48:22] "GET /api/get_trans/21 HTTP/1.1" 200 -
+2026-03-12 10:48:27,406 - antchain - INFO - ================================================================================
+2026-03-12 10:48:27,407 - antchain - INFO - [AntChain] ã€æ¥å£ã€‘twc.notary.certificate.detail.get (get_proof)
+2026-03-12 10:48:27,408 - antchain - INFO - [AntChain] ã€è¯·æ±‚å‚æ•°ã€‘{'product_instance_id': 'notarycore-api-sandbox', 'transaction_id': 'db9cc62b68d652e5872f1fdf18f0b367'}
+2026-03-12 10:48:27,408 - antchain - INFO - [AntChain] ã€è¯·æ±‚æ—¶é—´ã€‘2026-03-12 10:48:27.408837
+2026-03-12 10:48:27,409 - antchain - ERROR - [AntChain] ã€å“åº”çŠ¶æ€ã€‘å¤±è´¥
+2026-03-12 10:48:27,410 - antchain - ERROR - [AntChain] ã€å¼‚å¸¸æ—¶é—´ã€‘2026-03-12 10:48:27.409964
+2026-03-12 10:48:27,433 - antchain - ERROR - [AntChain] ã€å¼‚å¸¸ä¿¡æ¯ã€‘cannot import name 'GetProofRequest' from 'antchain_sdk_twc.models' (D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\antchain_sdk_twc\models.py)
+Traceback (most recent call last):
+  File "d:\git_xxb\xxb\mayilian\app_new_enterprise.py", line 268, in get_proof
+    from antchain_sdk_twc.models import GetProofRequest
+ImportError: cannot import name 'GetProofRequest' from 'antchain_sdk_twc.models' (D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\antchain_sdk_twc\models.py)
+2026-03-12 10:48:27,439 - antchain - ERROR - ================================================================================
+2026-03-12 10:48:27,440 - antchain - ERROR - [API] è·å–å­˜è¯è¯æ˜å¤±è´¥ï¼Œè®°å½•IDï¼š21ï¼Œé”™è¯¯ï¼šcannot import name 'GetProofRequest' from 'antchain_sdk_twc.models' (D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\antchain_sdk_twc\models.py)
+Traceback (most recent call last):
+  File "d:\git_xxb\xxb\mayilian\app_new_enterprise.py", line 760, in api_get_proof
+    response = client.get_proof(
+        product_instance_id=app.config.get('ANTCHAIN_PRODUCT_INSTANCE_ID'),
+        transaction_id=record.transaction_id
+    )
+  File "d:\git_xxb\xxb\mayilian\app_new_enterprise.py", line 268, in get_proof
+    from antchain_sdk_twc.models import GetProofRequest
+ImportError: cannot import name 'GetProofRequest' from 'antchain_sdk_twc.models' (D:\git_xxb\xxb\mayilian\.venv\Lib\site-packages\antchain_sdk_twc\models.py)
+2026-03-12 10:48:27,443 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 10:48:27] "GET /api/get_proof/21 HTTP/1.1" 200 -
+2026-03-12 10:57:27,368 - antchain - INFO - ================================================================================
+2026-03-12 10:57:27,369 - antchain - INFO - [AntChain] ã€æ¥å£ã€‘twc.notary.trans.get (get_trans)
+2026-03-12 10:57:27,370 - antchain - INFO - [AntChain] ã€è¯·æ±‚å‚æ•°ã€‘{'transaction_id': 'db9cc62b68d652e5872f1fdf18f0b367', 'product_instance_id': 'notarycore-api-sandbox'}
+2026-03-12 10:57:27,370 - antchain - INFO - [AntChain] ã€è¯·æ±‚æ—¶é—´ã€‘2026-03-12 10:57:27.370717
+2026-03-12 10:57:29,262 - antchain - INFO - [AntChain] ã€å“åº”çŠ¶æ€ã€‘æˆåŠŸ
+2026-03-12 10:57:29,263 - antchain - INFO - [AntChain] ã€å“åº”æ—¶é—´ã€‘2026-03-12 10:57:29.263665
+2026-03-12 10:57:29,264 - antchain - INFO - [AntChain] ã€å“åº”å‚æ•°ã€‘{'req_msg_id': '50cb25d7d840537b8a1797b7b24a5ea0', 'result_code': '2499', 'result_msg': 'TRANSACTION_ID_INVALID', 'file_url': None, 'transaction_id': None}
+2026-03-12 10:57:29,264 - antchain - INFO - [AntChain] ã€å…³é”®ä¿¡æ¯ã€‘è¯·æ±‚ID: 50cb25d7d840537b8a1797b7b24a5ea0
+2026-03-12 10:57:29,265 - antchain - INFO - ================================================================================
+2026-03-12 10:57:29,267 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 10:57:29] "GET /api/get_trans/21 HTTP/1.1" 200 -
+2026-03-12 11:01:25,829 - antchain - INFO - ================================================================================
+2026-03-12 11:01:25,829 - antchain - INFO - [ç³»ç»Ÿ] æ—¥å¿—ç³»ç»Ÿåˆå§‹åŒ–å®Œæˆ
+2026-03-12 11:01:25,830 - antchain - INFO - [ç³»ç»Ÿ] æ—¥å¿—æ–‡ä»¶è·¯å¾„: d:\git_xxb\xxb\mayilian\antchain_logs.log
+2026-03-12 11:01:25,830 - antchain - INFO - ================================================================================
+2026-03-12 11:01:26,338 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://10.99.52.51:5002
+2026-03-12 11:01:26,339 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-12 11:01:26,343 - werkzeug - INFO -  * Restarting with stat
+2026-03-12 11:01:27,400 - antchain - INFO - ================================================================================
+2026-03-12 11:01:27,401 - antchain - INFO - [ç³»ç»Ÿ] æ—¥å¿—ç³»ç»Ÿåˆå§‹åŒ–å®Œæˆ
+2026-03-12 11:01:27,401 - antchain - INFO - [ç³»ç»Ÿ] æ—¥å¿—æ–‡ä»¶è·¯å¾„: d:\git_xxb\xxb\mayilian\antchain_logs.log
+2026-03-12 11:01:27,402 - antchain - INFO - ================================================================================
+2026-03-12 11:01:27,913 - werkzeug - WARNING -  * Debugger is active!
+2026-03-12 11:01:27,928 - werkzeug - INFO -  * Debugger PIN: 114-763-512
+2026-03-12 11:01:47,537 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 11:01:47] "GET / HTTP/1.1" 200 -
+2026-03-12 11:01:50,513 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 11:01:50] "GET /notarize HTTP/1.1" 200 -
+2026-03-12 11:02:03,625 - antchain - INFO - [Notarize] åˆ›å»ºå­˜è¯è®°å½•æˆåŠŸï¼ŒIDï¼š22
+2026-03-12 11:02:03,629 - antchain - INFO - ================================================================================
+2026-03-12 11:02:03,630 - antchain - INFO - [AntChain] ã€æ¥å£ã€‘twc.notary.trans.create (create_trans)
+2026-03-12 11:02:03,631 - antchain - INFO - [AntChain] ã€è¯·æ±‚å‚æ•°ã€‘{'product_instance_id': 'notarycore-api-sandbox', 'properties': '', 'customer': <antchain_sdk_twc.models.Identity object at 0x00000232AAF69BE0>}
+2026-03-12 11:02:03,631 - antchain - INFO - [AntChain] ã€è¯·æ±‚æ—¶é—´ã€‘2026-03-12 11:02:03.631776
+2026-03-12 11:02:07,270 - antchain - INFO - [AntChain] ã€å“åº”çŠ¶æ€ã€‘æˆåŠŸ
+2026-03-12 11:02:07,271 - antchain - INFO - [AntChain] ã€å“åº”æ—¶é—´ã€‘2026-03-12 11:02:07.271181
+2026-03-12 11:02:07,272 - antchain - INFO - [AntChain] ã€å“åº”å‚æ•°ã€‘{'req_msg_id': '544a6d3b5aaa5a3784f859cd75c9a9c2', 'result_code': '2002', 'result_msg': 'MOBILE_NO_INVALID', 'transaction_id': None, 'tsr': None}
+2026-03-12 11:02:07,273 - antchain - INFO - [AntChain] ã€å…³é”®ä¿¡æ¯ã€‘äº‹åŠ¡ID: 544a6d3b5aaa5a3784f859cd75c9a9c2
+2026-03-12 11:02:07,274 - antchain - INFO - ================================================================================
+2026-03-12 11:02:07,275 - antchain - INFO - [Notarize] èš‚èšé“¾äº‹åŠ¡åˆ›å»ºæˆåŠŸï¼Œäº‹åŠ¡IDï¼š544a6d3b5aaa5a3784f859cd75c9a9c2
+2026-03-12 11:02:07,276 - antchain - INFO - ================================================================================
+2026-03-12 11:02:07,277 - antchain - INFO - [AntChain] ã€æ¥å£ã€‘twc.notary.text.create (create_text)
+2026-03-12 11:02:07,278 - antchain - INFO - [AntChain] ã€è¯·æ±‚å‚æ•°ã€‘{'product_instance_id': 'notarycore-api-sandbox', 'transaction_id': '544a6d3b5aaa5a3784f859cd75c9a9c2', 'text_notary_type': 'TEXT_HASH', 'notary_content': 'a0bb71d89280874bbcedd0dad3c4f8f4b6addafdd3578e71ab02ad453858632b', 'phase': '1', 'hash_algorithm': 'SHA256'}
+2026-03-12 11:02:07,279 - antchain - INFO - [AntChain] ã€è¯·æ±‚æ—¶é—´ã€‘2026-03-12 11:02:07.279442
+2026-03-12 11:02:07,375 - antchain - INFO - [AntChain] ã€å“åº”çŠ¶æ€ã€‘æˆåŠŸ
+2026-03-12 11:02:07,376 - antchain - INFO - [AntChain] ã€å“åº”æ—¶é—´ã€‘2026-03-12 11:02:07.376293
+2026-03-12 11:02:07,377 - antchain - INFO - [AntChain] ã€å“åº”å‚æ•°ã€‘{'req_msg_id': '6de168f9b1f45cbcbbdf512ee48d1cf9', 'result_code': '2499', 'result_msg': 'TRANSACTION_ID_INVALID', 'tsr': None, 'tx_hash': None}
+2026-03-12 11:02:07,377 - antchain - INFO - [AntChain] ã€å…³é”®ä¿¡æ¯ã€‘è¯·æ±‚ID: 6de168f9b1f45cbcbbdf512ee48d1cf9
+2026-03-12 11:02:07,378 - antchain - INFO - ================================================================================
+2026-03-12 11:02:07,431 - antchain - INFO - [Notarize] å­˜è¯æˆåŠŸï¼Œè®°å½•IDï¼š22
+2026-03-12 11:02:07,489 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 11:02:07] "[32mPOST /notarize HTTP/1.1[0m" 302 -
+2026-03-12 11:02:07,524 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 11:02:07] "GET / HTTP/1.1" 200 -
+2026-03-12 11:02:23,863 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 11:02:23] "GET /view_record/22 HTTP/1.1" 200 -
+2026-03-12 11:02:48,326 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 11:02:48] "GET /download_file/22 HTTP/1.1" 200 -
+2026-03-12 11:02:48,396 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 11:02:48] "[35m[1mGET /download_file/22 HTTP/1.1[0m" 206 -
+2026-03-12 11:02:48,402 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 11:02:48] "[35m[1mGET /download_file/22 HTTP/1.1[0m" 206 -
+2026-03-12 11:04:52,528 - antchain - INFO - ================================================================================
+2026-03-12 11:04:52,529 - antchain - INFO - [AntChain] ã€æ¥å£ã€‘twc.notary.text.get (get_file)
+2026-03-12 11:04:52,530 - antchain - INFO - [AntChain] ã€è¯·æ±‚å‚æ•°ã€‘{'product_instance_id': 'notarycore-api-sandbox', 'transaction_id': '544a6d3b5aaa5a3784f859cd75c9a9c2', 'tx_hash': 'a0bb71d89280874bbcedd0dad3c4f8f4b6addafdd3578e71ab02ad453858632b'}
+2026-03-12 11:04:52,531 - antchain - INFO - [AntChain] ã€è¯·æ±‚æ—¶é—´ã€‘2026-03-12 11:04:52.531334
+2026-03-12 11:04:54,321 - antchain - INFO - [AntChain] ã€å“åº”çŠ¶æ€ã€‘æˆåŠŸ
+2026-03-12 11:04:54,322 - antchain - INFO - [AntChain] ã€å“åº”æ—¶é—´ã€‘2026-03-12 11:04:54.322116
+2026-03-12 11:04:54,322 - antchain - INFO - [AntChain] ã€å“åº”å‚æ•°ã€‘{'req_msg_id': 'c02365b4b52c5ce3aec8ba32b8a65f37', 'result_code': '2003', 'result_msg': 'PERMISSION_IS_NOT_EXIST', 'file_hash': None, 'file_notary_type': None, 'hash_algorithm': None, 'oss_path': None}
+2026-03-12 11:04:54,323 - antchain - INFO - [AntChain] ã€å…³é”®ä¿¡æ¯ã€‘è¯·æ±‚ID: c02365b4b52c5ce3aec8ba32b8a65f37
+2026-03-12 11:04:54,323 - antchain - INFO - ================================================================================
+2026-03-12 11:04:54,325 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 11:04:54] "GET /api/get_file/22 HTTP/1.1" 200 -
+2026-03-12 11:07:11,986 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 11:07:11] "GET / HTTP/1.1" 200 -
+2026-03-12 11:07:18,983 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 11:07:18] "GET /notarize HTTP/1.1" 200 -
+2026-03-12 11:07:25,494 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 11:07:25] "GET /config HTTP/1.1" 200 -
+2026-03-12 11:07:42,783 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 11:07:42] "GET / HTTP/1.1" 200 -
+2026-03-12 11:07:44,319 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2026 11:07:44] "GET /enterprise HTTP/1.1" 200 -
